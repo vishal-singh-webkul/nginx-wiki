@@ -43,6 +43,8 @@ Please check the below configuration, your web server should directs all request
                 error_log /path/for/error/log warn;
                 access_log /path/for/error/log combined;
 
+                # Web service API.
+                rewrite ^/api/?(.*)$ /webservice/dispatcher.php?url=$1 last;
 
                 # Do not generate logs for these
                 location = /favicon.ico { log_not_found off; access_log off; }
